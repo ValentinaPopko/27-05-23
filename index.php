@@ -16,11 +16,12 @@ echo $_COOKIE["test"];
 <!-- задача 3 27/05/23 -->
 <!-- <?php
 
-if (isset($_COOKIE['time_visit']) && intval($_COOKIE['time_visit']) > 0){
-$timeLast = time() - intval($_COOKIE['time_visit']);
-echo 'С последнего захода на сайт прошло ' . date("s", $timeLast) . ' секунд';
-}
-
+if (!isset($_COOKIE['time_visit'])) {
+        setcookie('time_visit', time());
+    } else {
+        $timeLast = time() - $_COOKIE['time_visit'];
+        echo 'С последнего захода на сайт прошло ' . $timeLast . ' секунд';
+    }
 setcookie('time_visit', time(), time()+60*60*24*365, '/');
 ?>  -->
 
